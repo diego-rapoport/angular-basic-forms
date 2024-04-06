@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterOutlet } from '@angular/router'
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms'
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+} from '@angular/forms'
 
 @Component({
   selector: 'app-root',
@@ -12,7 +17,10 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms'
 })
 export class AppComponent implements OnInit {
   title = 'forms'
-  form: FormGroup = this.fb.group({})
+  form: FormGroup = this.fb.group({
+    name: '',
+    password: '',
+  })
 
   constructor(private fb: FormBuilder) {}
 
