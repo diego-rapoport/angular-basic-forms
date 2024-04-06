@@ -13,7 +13,13 @@
     @if (
     form.get('password')!.invalid && (form.get('password')!.dirty || form.get('password')!.touched)
     ) {
-    <p class="error-message">Password is required</p>
+    @if(form.get('password')!.errors!['required']!) {
+    <p class="error-message">Password required</p>
+    }
+    @if(form.get('password')!.errors!['minlength']!){
+    <p class="error-message">Minimum length: {{form.get('password')!.errors!['minlength']!['requiredLength']!}}</p>
+    <p class="error-message">Actual length: {{form.get('password')!.errors!['minlength']!['actualLength']!}}</p>
+    }
     }
     <button class="btn-form">Submit</button>
   </form>
