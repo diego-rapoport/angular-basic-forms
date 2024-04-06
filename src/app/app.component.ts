@@ -6,6 +6,7 @@ import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
+  Validators,
 } from '@angular/forms'
 
 @Component({
@@ -18,8 +19,8 @@ import {
 export class AppComponent implements OnInit {
   title = 'forms'
   form: FormGroup = this.fb.group({
-    name: '',
-    password: '',
+    name: ['', [Validators.required]],
+    password: ['', [Validators.required]],
   })
 
   constructor(private fb: FormBuilder) {}
