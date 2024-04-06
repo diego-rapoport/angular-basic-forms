@@ -21,6 +21,23 @@
     <p class="error-message">Actual length: {{form.get('password')!.errors!['minlength']!['actualLength']!}}</p>
     }
     }
+    <br>
+    <h2 class="centered">Socials to add</h2>
+    <button class="btn-social" (click)="addSocial()" type="button">Add Social Login</button>
+    <form formArrayName="socials">
+    @for(social of socials.controls; let index = $index; track index) {
+    <div [formGroupName]=index>
+      <div class="box-social">
+      <input type="text" formControlName="name" class="social-input">
+      <button (click)="removeSocial(index)" type="button">Remove</button>
+      </div>
+      @if(social.invalid && (social.dirty || social.touched)) {
+      <p class="error-message">Name Required</p>
+      }
+    </div>
+    }
+
+    </form>
     <button class="btn-form">Submit</button>
   </form>
 </div>

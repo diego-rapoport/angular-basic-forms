@@ -20,3 +20,17 @@
   color: red;
   font-weight: bold;
 }
+
+.btn-social {
+  margin-bottom: 2rem;
+}
+
+.box-social {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.social-input {
+  width: 50%;
+}

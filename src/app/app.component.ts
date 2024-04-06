@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterOutlet } from '@angular/router'
 import {
+  FormArray,
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit {
   form: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
     password: ['', [Validators.required, Validators.minLength(8)]],
+    socials: this.fb.array([]),
   })
 
   constructor(private fb: FormBuilder) { }
@@ -30,5 +32,21 @@ export class AppComponent implements OnInit {
     if (!this.form.valid) {
       this.form.markAllAsTouched()
     }
+  }
+
+  get socials(): FormArray {
+    return this.form.get('socials') as FormArray
+  }
+
+  newSocial(): FormGroup {
+    return this.fb.group({ name: ['', Validators.required] })
+  }
+
+  addSocial() {
+    this.socials.push(this.newSocial())
+  }
+
+  removeSocial(i: number) {
+    this.socials.removeAt(i)
   }
 }
