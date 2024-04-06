@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common'
 import { RouterOutlet } from '@angular/router'
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
