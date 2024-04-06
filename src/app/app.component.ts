@@ -22,13 +22,13 @@ export class AppComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(8)]],
   })
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   sendForm() {
     if (!this.form.valid) {
-      alert('Form not valid!')
+      this.form.markAllAsTouched()
     }
   }
 }
