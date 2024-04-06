@@ -26,4 +26,10 @@ export class AppComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {}
+
+  sendForm() {
+    if (!this.form.valid) {
+      alert('Form not valid!')
+    }
+  }
 }
