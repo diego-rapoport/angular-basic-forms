@@ -3,8 +3,18 @@
   <form [formGroup]="form" class="form" (ngSubmit)="sendForm()">
     <label for="name">Name: </label>
     <input id="name" type="text" formControlName="name" />
+    @if (
+    form.get('name')!.invalid && (form.get('name')!.dirty || form.get('name')!.touched)
+    ) {
+    <p class="error-message">Name is required</p>
+    }
     <label for="password">Password: </label>
     <input id="password" type="password" formControlName="password" />
+    @if (
+    form.get('password')!.invalid && (form.get('password')!.dirty || form.get('password')!.touched)
+    ) {
+    <p class="error-message">Password is required</p>
+    }
     <button class="btn-form">Submit</button>
   </form>
 </div>
