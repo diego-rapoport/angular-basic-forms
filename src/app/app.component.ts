@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   title = 'forms'
   form: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
-    password: ['', [Validators.required]],
+    password: ['', [Validators.required, Validators.minLength(8)]],
   })
 
   constructor(private fb: FormBuilder) {}
