@@ -1,10 +1,9 @@
 <div class="centered">
   <h1>FORM</h1>
-  <form [formGroup]="form" class="form" (ngSubmit)="sendForm()">
+  <form [formGroup]="form" class="form">
     <label for="name">Name: </label>
     <input id="name" type="text" formControlName="name" />
     <label for="password">Password: </label>
     <input id="password" type="password" formControlName="password" />
-    <button class="btn-form">Submit</button>
   </form>
 </div>
